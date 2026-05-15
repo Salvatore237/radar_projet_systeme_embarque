@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RUD - Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="body-dashboard">
+    <div class="sidebar">
+        <h2 style="text-align: center;">RUD Admin</h2>
+        <a href="dashboard.html" class="active">
+            <img src="../media/tableau-de-bord.png" class="nav-icon" alt=""> Tableau de bord
+        </a>
+        <a href="config.html">
+            <img src="../media/radar.png" class="nav-icon" alt=""> Connexion Dispositif
+        </a>
+        <a href="notifications.html">
+            <img src="../media/notification.png" class="nav-icon" alt=""> Notifications
+        </a>
+        <a href="infractions.html">
+            <img src="../media/infraction-au-code-de-la-route.png" class="nav-icon" alt=""> Infractions récentes
+        </a>
+        <a href="infractions.html">
+            <img src="../media/historique.png" class="nav-icon" alt=""> Historique
+        </a>
+
+        <a href="login.html" class="logout-link">
+            <img src="../media/deconnexion.png" class="nav-icon" alt=""> Déconnexion
+        </a>
+    </div>
+
+
+    <div class="main-content">
+        <h1>Tableau de bord</h1>
+
+        <div class="stats-container">
+            <!-- Carte Infractions (Style existant) -->
+            <div class="card" onclick="location.href='infractions.html'">
+                <h3>Infractions</h3>
+                <p>Voir tout le catalogue</p>
+                <span style="font-size: 1.2rem; font-weight: bold; color: white;">24 aujourd'hui</span>
+            </div>
+
+            <!-- CARTE DISPOSITIF MISE À JOUR -->
+            <div class="card" onclick="location.href='config.html'">
+                <h3>Dispositif</h3>
+                <div class="status-container">
+                    <span class="status-dot dot-online"></span> <!-- Change en dot-offline si déconnecté -->
+                    <span class="status-text text-online">Radar Connecté</span>
+                    <!-- Change en text-offline si déconnecté -->
+                </div>
+                <p style="margin-top: 15px;">IP: 192.168.1.100</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

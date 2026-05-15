@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RUD - Login</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- VERIFIE BIEN CE CHEMIN -->
+</head>
+<body class="body-login">
+    <form id="loginForm">
+        <div class="login-card">
+            <h1>RUD</h1>
+            <input type="text" placeholder="USERNAME" id="username" name="username" required>
+            <input type="password" placeholder="PASSWORD" type="password" id="password" name="password" required>
+            <button type="submit" class="btn-blue" id="login-btn" onclick="location.href='dashboard.html'">Se connecter</button>
+            <!-- Message d'erreur onclick="location.href='dashboard.html'"-->
+            <p id="errorMessage" class="error-message"></p>
+            <!-- <a href="#" class="forgot">Forgot your password?</a> -->
+        </div>
+    </form>
+    
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>RUD - Notifications</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="body-dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>RUD Admin</h2>
+        <a href="dashboard.html">
+            <img src="../media/tableau-de-bord.png" class="nav-icon" alt=""> Tableau de bord
+        </a>
+        <a href="config.html">
+            <img src="../media/radar.png" class="nav-icon" alt=""> Connexion Dispositif
+        </a>
+        <a href="notifications.html" class="active">
+            <img src="../media/notification.png" class="nav-icon" alt=""> Notifications
+        </a>
+        <a href="infractions.html">
+            <img src="../media/infraction-au-code-de-la-route.png" class="nav-icon" alt=""> Infractions récentes
+        </a>
+        <a href="infractions.html">
+            <img src="../media/historique.png" class="nav-icon" alt=""> Historique
+        </a>
+
+        <a href="login.html" class="logout-link">
+            <img src="../media/deconnexion.png" class="nav-icon" alt=""> Déconnexion
+        </a>
+    </div>
+
+    <!-- Contenu Principal -->
+    <div class="main-content">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Centre de Notifications</h1>
+            <button class="btn-action" style="background: transparent; border: 1px solid #30305a;">Tout marquer comme lu</button>
+        </div>
+
+        <div class="infraction-list">
+            
+            <!-- Notification Alerte Système -->
+            <div class="infraction-item unread">
+                <div class="infraction-main">
+                    <div class="notif-icon bg-error">⚠️</div>
+                    <div class="infraction-details">
+                        <h4>Radar déconnecté</h4>
+                        <span>Le capteur ultrasonic ne répond plus (Vérifiez l'adresse IP).</span>
+                        <span class="time-ago">Il y a 2 minutes</span>
+                    </div>
+                </div>
+                <button class="btn-select">Réparer</button>
+            </div>
+
+            <!-- Notification Info -->
+            <div class="infraction-item">
+                <div class="infraction-main">
+                    <div class="notif-icon bg-info">💾</div>
+                    <div class="infraction-details">
+                        <h4>Rapport hebdomadaire prêt</h4>
+                        <span>Le résumé des 124 infractions de la semaine est disponible.</span>
+                        <span class="time-ago">Il y a 3 heures</span>
+                    </div>
+                </div>
+                <button class="btn-select">Ouvrir</button>
+            </div>
+
+            <!-- Notification Warning -->
+            <div class="infraction-item">
+                <div class="infraction-main">
+                    <div class="notif-icon bg-warning">⚡</div>
+                    <div class="infraction-details">
+                        <h4>Pic d'activité détecté</h4>
+                        <span>Plus de 15 véhicules détectés en moins de 10 minutes sur la zone.</span>
+                        <span class="time-ago">Hier à 18:45</span>
+                    </div>
+                </div>
+                <button class="btn-select">Analyser</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

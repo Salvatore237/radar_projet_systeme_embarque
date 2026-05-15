@@ -73,6 +73,8 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
-server.listen(port);
+server.listen(port, () => {
+  console.log(`✅ Server is running on port ${port}`);
+});
 
 module.exports = server; // Export the server for testing or other purposes

@@ -46,7 +46,7 @@ function connectMqttClient(io) {
       const { vitesse, inf_id, imageBase64, RadarId } = rawData;
 
       // 3. Vérification que les données essentielles sont là
-      if (vitesse == null || !imageBase64 || !RadarId) {
+      if (vitesse == null || !RadarId) {
         console.error("⚠️ Données incomplètes venant de l'ESP32.");
         return;
       }

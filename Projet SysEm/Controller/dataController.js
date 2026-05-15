@@ -7,9 +7,9 @@ const Infraction = require('../models/dataModels');
  * Fonction métier pour traiter une infraction (sauvegarde image + BDD + WebSocket)
  * @param {Number} vitesse - La vitesse mesurée
  * @param {String} inf_id - L'identifiant de l'infraction
- * @param {String} imageBase64 - L'image encodée
+ * @param {String} imageBase64 - L'image encodée (optionnel)
  * @param {String} RadarId - L'identifiant du radar
- * @param {Object} io - L'instance WebSockets pour notifier l'app
+ * @param {Object} io - Instance Socket.io pour notifications WebSocket
  */
 const traiterNouvelleInfraction = async (vitesse, inf_id, imageBase64, RadarId, io) => {
   try {
@@ -19,14 +19,19 @@ const traiterNouvelleInfraction = async (vitesse, inf_id, imageBase64, RadarId, 
       fs.mkdirSync(uploadDir, { recursive: true });
     }
 
-    // 2. Création des chemins et sauvegarde physique de l'image
-    const nomFichier = `radar-${Date.now()}.jpg`;
-    const cheminAbsolu = path.join(uploadDir, nomFichier);
-    const cheminRelatif = path.join('uploads', nomFichier); 
+    // 2. Création éventuelle des chemins et sauvegarde physique de l'image
+    let cheminRelatif = '';
+    if (imageBase64) {
+      const nomFichier = `radar-${Date.now()}.jpg`;
+      const cheminAbsolu = path.join(uploadDir, nomFichier);
+      cheminRelatif = path.join('uploads', nomFichier);
 
-    const base64Data = imageBase64.replace(/^data:image\/\w+;base64,/, '');
-    fs.writeFileSync(cheminAbsolu, base64Data, 'base64');
-    console.log(`📸 Image sauvegardée : ${nomFichier}`);
+      const base64Data = imageBase64.replace(/^data:image\/\w+;base64,/, '');
+      fs.writeFileSync(cheminAbsolu, base64Data, 'base64');
+      console.log(`📸 Image sauvegardée : ${nomFichier}`);
+    } else {
+      console.log('ℹ️ Aucune image reçue via MQTT, enregistrement sans image.');
+    }
 
     // 3. Sauvegarde dans MongoDB via le Modèle
     const infractionId = inf_id || `INF-${Date.now()}`;
@@ -36,7 +41,6 @@ const traiterNouvelleInfraction = async (vitesse, inf_id, imageBase64, RadarId, 
       inf_id: infractionId,
       imagePath: cheminRelatif,
       RadarId
-
     });
 
     await nouvelleInfraction.save();

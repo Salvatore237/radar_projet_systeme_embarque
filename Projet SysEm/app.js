@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const mongoose = require("mongoose");
 
 const radar = require('./Routes/dataRoute');
@@ -17,12 +18,15 @@ const radar = require('./Routes/dataRoute');
   });
 
 const app = express();
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
 });
+
+app.use('/frontend', express.static(path.join(__dirname, 'frontend')));
 
 app.use(cors());
 app.use(express.json());
@@ -31,5 +35,8 @@ app.use('/historique', radar);
 // res.send('✅ Serveur fonctionne');
 //});
 
+app.get('/', (req, res) => {
+    res.redirect('/frontend/pages/login.html');
+});
 
 module.exports = app;

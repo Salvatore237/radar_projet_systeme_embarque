@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>RUD - Configuration</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="body-dashboard">
+    <!-- Sidebar identique au Dashboard -->
+   <div class="sidebar">
+        <h2>RUD Admin</h2>
+        <a href="dashboard.html">
+            <img src="../media/tableau-de-bord.png" class="nav-icon" alt=""> Tableau de bord
+        </a>
+        <a href="config.html" class="active">
+            <img src="../media/radar.png" class="nav-icon" alt=""> Connexion Dispositif
+        </a>
+        <a href="notifications.html">
+            <img src="../media/notification.png" class="nav-icon" alt=""> Notifications
+        </a>
+        <a href="infractions.html">
+            <img src="../media/infraction-au-code-de-la-route.png" class="nav-icon" alt=""> Infractions récentes
+        </a>
+        <a href="infractions.html">
+            <img src="../media/historique.png" class="nav-icon" alt=""> Historique
+        </a>
+
+        <a href="login.html" class="logout-link">
+            <img src="../media/deconnexion.png" class="nav-icon" alt=""> Déconnexion
+        </a>
+    </div>
+
+    <!-- Contenu Principal -->
+    <div class="main-content">
+        <h1>Configuration du Système</h1>
+        
+        <div class="card">
+            <h2>📡 Paramètres Radar</h2>
+            
+            <div class="form-group">
+                <label>Adresse IP du dispositif :</label>
+                <input type="text" placeholder="192.168.1.100">
+            </div>
+
+            <div class="form-group">
+                <label>Port de communication :</label>
+                <input type="text" placeholder="8080">
+            </div>
+
+            <button class="btn-action" onclick="alert('Radar connecté !')">
+                Connecter le dispositif
+            </button>
+        </div>
+    </div>
+</body>
+</html>

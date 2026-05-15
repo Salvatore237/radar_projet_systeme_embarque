@@ -9,6 +9,7 @@ exports.InfactionHistory = async (req, res) => {
     
         const historique = await Infraction.find({}, {
       vitesse: 1, 
+      status: 1,
       inf_id: 1, 
       imagePath: 1, 
       date: 1, 

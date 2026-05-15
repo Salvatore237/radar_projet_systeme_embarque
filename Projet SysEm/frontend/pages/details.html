@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RUD - Détails Infraction</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="body-dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>RUD Admin</h2>
+        <a href="dashboard.html">
+            <img src="../media/tableau-de-bord.png" class="nav-icon" alt=""> Tableau de bord
+        </a>
+        <a href="config.html">
+            <img src="../media/radar.png" class="nav-icon" alt=""> Connexion Dispositif
+        </a>
+        <a href="notifications.html">
+            <img src="../media/notification.png" class="nav-icon" alt=""> Notifications
+        </a>
+        <a href="infractions.html">
+            <img src="../media/infraction-au-code-de-la-route.png" class="nav-icon" alt=""> Infractions récentes
+        </a>
+        <a href="infractions.html">
+            <img src="../media/historique.png" class="nav-icon" alt=""> Historique
+        </a>
+
+        <a href="login.html" class="logout-link">
+            <img src="../media/deconnexion.png" class="nav-icon" alt=""> Déconnexion
+        </a>
+    </div>
+
+    <!-- Contenu Principal -->
+    <div class="main-content">
+        <a href="infractions.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">← Retour à la
+            liste</a>
+        <h1 style="margin-top: 10px;">Analyse de l'Infraction</h1>
+
+        <div class="card">
+            <div class="detail-grid">
+
+                <!-- Colonne Gauche : Données -->
+                <div class="detail-info">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <h2>ID Capture : <span id="det-id" style="color: #007bff;">...</span></h2>
+                        <!-- marqueur de statut -->
+                        <span id="det-status" class="status-badge">...</span>
+                    </div>
+                    <span class="speed-focus" id="det-vitesse">... km/h</span>
+                    <p>Limitation autorisée : <strong>80 km/h</strong></p>
+                    <p>Date de l'événement : <strong id="det-date">...</strong></p>
+                    <p>Heure précise : <strong id="det-heure">..:..:..</strong></p>
+
+                    <div style="margin-top: 30px;">
+                        <button id="traiter" class="btn-action" style="width: 100%;">Traiter l'infraction</button>
+                        <!-- <button class="btn-action"
+                            style="width: 100%; margin-top: 10px; background: transparent; border: 1px solid #dc3545; color: #dc3545;">Classer
+                            sans suite</button> -->
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Visualisation -->
+                <div id="vehicle-display" class="vehicle-display">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+</body>
+
+</html>
