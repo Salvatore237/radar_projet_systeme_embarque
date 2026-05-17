@@ -49,7 +49,7 @@ async function displayInfractions() {
                 </div>
             </div>
             <div class="infraction-speed">
-                <span class="speed-value" style="color: ${inf.status === 'Traité' ? '#28a745' : '#dc3545'};">${inf.vitesse} km/h</span>
+                <span class="speed-value" style="color: ${inf.status === 'Traité' ? '#28a745' : '#dc3545'};">${inf.vitesse} cm/s</span>
                 <span class="speed-label">${inf.status}</span>
             </div>
             <button class="btn-select">Détails</button>
@@ -87,7 +87,7 @@ async function loadInfractionDetails() {
     if (data) {
         // 3. Mettre à jour le HTML
         document.getElementById('det-id').innerText = data.inf_id;
-        document.getElementById('det-vitesse').innerText = `${data.vitesse} km/h`;
+        document.getElementById('det-vitesse').innerText = `${data.vitesse} cm/s`;
         document.getElementById('det-date').innerText = `${new Date(data.date).toLocaleDateString()}`;
         document.getElementById('det-heure').innerText = `${new Date(data.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 

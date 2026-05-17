@@ -19,7 +19,7 @@ const infractionSchema = new mongoose.Schema({
     imagePath: {
         type: String,
         required: false,
-        default: ''
+        default: '/uploads/if002.jpg' // Chemin vers une image par défaut si aucune n'est fournie
     },
 
     date: {

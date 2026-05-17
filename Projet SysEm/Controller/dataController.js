@@ -39,12 +39,12 @@ const traiterNouvelleInfraction = async (vitesse, inf_id, imageBase64, RadarId, 
     const nouvelleInfraction = new Infraction({
       vitesse,
       inf_id: infractionId,
-      imagePath: cheminRelatif,
+      imagePath : '', // Utilisation d'une image par défaut
       RadarId
     });
 
     await nouvelleInfraction.save();
-    console.log(`💾 Infraction enregistrée en base de données (${vitesse} km/h)`);
+    console.log(`💾 Infraction enregistrée en base de données (${vitesse} cm/s)`);
 
     // 4. Diffusion de l'alerte en temps réel via WebSocket
     if (io) {
